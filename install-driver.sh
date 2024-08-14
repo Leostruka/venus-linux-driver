@@ -66,6 +66,7 @@ if [ "$arch" = "i686" ] || [ "$arch" = "i386" ]; then
     find ./sdk/x86/eNBSP/bin/ -type f ! -name 'lib*' | while read file; do
       [ -f /usr/local/bin/$(basename "$file") ] && echo "Overwriting $(basename "$file") for x86 architecture."
       cp -f "$file" /usr/local/bin/
+      chmod +x /usr/local/bin/$(basename "$file")
     done
   else
     echo "File VenusLib.so does not exist in the current directory and was not copied"
@@ -82,6 +83,7 @@ else
     find ./sdk/x64/eNBSP/bin/ -type f ! -name 'lib*' | while read file; do
       [ -f /usr/local/bin/$(basename "$file") ] && echo "Overwriting $(basename "$file") for x64 architecture."
       cp -f "$file" /usr/local/bin/
+      chmod +x /usr/local/bin/$(basename "$file")
     done
   else
     echo "File VenusLib.so does not exist in the current directory and was not copied"
