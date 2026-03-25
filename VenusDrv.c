@@ -455,7 +455,7 @@ static void hfdu04_isocomplete(struct urb *purb, struct pt_regs *regs)
     if (purb->status != -ENOENT)
     {
         pipe = usb_rcvisocpipe(purb->dev, dev->iso_in_endpointAddr);
-#if LINUX_VERSION_CODE > KERNEL_VERSION(5, 20, 0)
+#if LINUX_VERSION_CODE > KERNEL_VERSION(5, 19, 0)
         pipesize = usb_maxpacket(purb->dev, pipe);
 #else
         pipesize = usb_maxpacket(purb->dev, pipe, usb_pipeout(pipe));
